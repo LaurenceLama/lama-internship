@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const Countdown = ({ expiryDate }) => {
  const [time, setTime] = useState('')
  const [idInterval, setIdInterval] = useState()
 
-  React.useEffect(() => {
+  useEffect(() => {
     calcTime() 
     
-    const idInterval = setInterval(() => {
+    const intervalId = setInterval(() => {
       calcTime()
     }, 1000)
     
-    setIdInterval(idInterval)
+    setIdInterval(intervalId);
 
     return () => {
-      clearInterval(idInterval);
+      clearInterval(intervalId);
     }
   }, [])
 

@@ -13620,6 +13620,10 @@ a.read_more i {
   padding-left: 70px;
 }
 
+/* .new-items__carousel  {
+  max-width: 100%;
+} */
+
 .nft__item {
   position: relative;
   padding: 20px;
