@@ -38,7 +38,6 @@ export default function NewItems() {
             new Array(1).fill(0).map((index) => (
               <OwlCarousel
                 loop
-                items={4}
                 nav
                 dots={false}
                 responsive={{
