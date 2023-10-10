@@ -3,15 +3,19 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Skeleton from "../UI/Skeleton";
 import Countdown from "../UI/Countdown";
+import LoadMore from "../UI/LoadMore";
 
 export default function ExploreItems() {
   const [item, setItem] = useState([]);
   const [skelLoad, setSkelLoad] = useState();
 
-  const handleLoadMore = () => {
+  const loadCount = 4;
 
-  }
-  
+  const { numberItemsPagination, loadMoreItems, loadMoreReset } =
+    LoadMore(loadCount);
+
+  const itemsDisplayed = numberItemsPagination + 4;
+
   async function fetchData() {
     setSkelLoad(true);
     const { data } = await axios.get(
@@ -35,7 +39,7 @@ export default function ExploreItems() {
           <option value="likes_high_to_low">Most liked</option>
         </select>
       </div>
-      {item.slice(1, 9).map((col, index) => (
+      {item.slice(0, itemsDisplayed).map((col, index) => (
         <div
           key={index}
           className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
@@ -150,16 +154,19 @@ export default function ExploreItems() {
         </div>
       ))} */}
       <div className="col-md-12 text-center">
-        <Link
-          to=""
-          // onClick={handleLoadMore}
-          id="loadmore"
-          className="btn-main lead"
-        >
-          Load more
-        </Link>
+        {item.length > itemsDisplayed ? (
+          <Link
+            to=""
+            onClick={() => loadMoreItems(item.length)}
+            id="loadmore"
+            className="btn-main lead"
+          >
+            Load more
+          </Link>
+        ) : (
+          <h1 style={{ display: "none" }}>rawr</h1>
+        )}
       </div>
     </>
   );
-};
-
+}
