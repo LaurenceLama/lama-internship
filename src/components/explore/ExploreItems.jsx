@@ -1,17 +1,22 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Skeleton from "../UI/Skeleton";
+import Countdown from "../UI/Countdown";
 
 export default function ExploreItems() {
   const [item, setItem] = useState([]);
   const [skelLoad, setSkelLoad] = useState();
 
+  const handleLoadMore = () => {
+
+  }
+  
   async function fetchData() {
     setSkelLoad(true);
     const { data } = await axios.get(
       "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
     );
-    console.log(data);
     setSkelLoad(false);
     setItem(data);
   }
@@ -30,7 +35,7 @@ export default function ExploreItems() {
           <option value="likes_high_to_low">Most liked</option>
         </select>
       </div>
-      {item.map((col, index) => (
+      {item.slice(1, 9).map((col, index) => (
         <div
           key={index}
           className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
@@ -47,7 +52,9 @@ export default function ExploreItems() {
                 <i className="fa fa-check"></i>
               </Link>
             </div>
-            <div className="de_countdown">5h 30m 32s</div>
+            {col.expiryDate && (
+              <Countdown key={col.id} expiryDate={col.expiryDate} />
+            )}
 
             <div className="nft__item_wrap">
               <div className="nft__item_extra">
@@ -143,7 +150,12 @@ export default function ExploreItems() {
         </div>
       ))} */}
       <div className="col-md-12 text-center">
-        <Link to="" id="loadmore" className="btn-main lead">
+        <Link
+          to=""
+          // onClick={handleLoadMore}
+          id="loadmore"
+          className="btn-main lead"
+        >
           Load more
         </Link>
       </div>
