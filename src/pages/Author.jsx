@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+// import Skeleton from "../UI/Skeleton";
+import axios from "axios";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
-import { Link } from "react-router-dom";
 import AuthorImage from "../images/author_thumbnail.jpg";
 
-const Author = () => {
+export default function Author() {
+  const [skelLoad, setSkelLoad] = useState();
+  const [author, setAuthor] = useState([]);
+  const [selectedAuthor, setSelectedAuthor] = useState([]);
+
+  async function fetchData() {
+    // setSkelLoad(true);
+    const { data } = await axios.get(
+      `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${selectedAuthor}`
+    );
+    // setSkelLoad(false);
+    setAuthor(data);
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
@@ -30,7 +49,7 @@ const Author = () => {
                       <i className="fa fa-check"></i>
                       <div className="profile_name">
                         <h4>
-                          Monica Lucas
+                          Monica Lucasers
                           <span className="profile_username">@monicaaaa</span>
                           <span id="wallet" className="profile_wallet">
                             UDHUHWudhwd78wdt7edb32uidbwyuidhg7wUHIFUHWewiqdj87dy7
@@ -64,6 +83,4 @@ const Author = () => {
       </div>
     </div>
   );
-};
-
-export default Author;
+}
