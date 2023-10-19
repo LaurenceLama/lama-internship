@@ -8,7 +8,8 @@ import AuthorItems from "../components/author/AuthorItems";
 export default function Author() {
   const [skelLoad, setSkelLoad] = useState();
   const [author, setAuthor] = useState([]);
-  const { authorId }  = useParams();
+  const { authorId } = useParams();
+  const [follow, setFollow] = useState(false);
 
   async function fetchData() {
     // setSkelLoad(true);
@@ -18,6 +19,14 @@ export default function Author() {
     // setSkelLoad(false);
     // console.log(data);
     setAuthor(data);
+  }
+
+  function addFollow() {
+    if (follow) {
+      setFollow(false);
+    } else {
+      setFollow(true);
+    }
   }
 
   useEffect(() => {
@@ -41,37 +50,52 @@ export default function Author() {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                  <div className="d_profile de-flex">
-                    <div className="de-flex-col">
-                      <div className="profile_avatar">
-                        <img src={author.authorImage} alt="" />
+                <div className="d_profile de-flex">
+                  <div className="de-flex-col">
+                    <div className="profile_avatar">
+                      <img src={author.authorImage} alt="" />
 
-                        <i className="fa fa-check"></i>
-                        <div className="profile_name">
-                          <h4>
-                            {author.authorName}
-                            <span className="profile_username">@{author.tag}</span>
-                            <span id="wallet" className="profile_wallet">
-                              {author.address}
-                            </span>
-                            <button id="btn_copy" title="Copy Text">
-                              Copy
-                            </button>
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="profile_follow de-flex">
-                      <div className="de-flex-col">
-                        <div className="profile_follower">
-                          {author.followers} followers
-                        </div>
-                        <Link to="#" className="btn-main">
-                          Follow
-                        </Link>
+                      <i className="fa fa-check"></i>
+                      <div className="profile_name">
+                        <h4>
+                          {author.authorName}
+                          <span className="profile_username">
+                            @{author.tag}
+                          </span>
+                          <span id="wallet" className="profile_wallet">
+                            {author.address}
+                          </span>
+                          <button id="btn_copy" title="Copy Text">
+                            Copy
+                          </button>
+                        </h4>
                       </div>
                     </div>
                   </div>
+                  <div className="profile_follow de-flex">
+                    <div className="de-flex-col">
+                      {follow ? (
+                        <>
+                          <div className="profile_follower">
+                            {author.followers + 1} followers
+                          </div>
+                          <Link to="#" className="btn-main" onClick={addFollow}>
+                            Unfollow
+                          </Link>
+                        </>
+                      ) : (
+                        <>
+                          <div className="profile_follower">
+                            {author.followers} followers
+                          </div>
+                          <Link to="#" className="btn-main" onClick={addFollow}>
+                            Follow
+                          </Link>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div className="col-md-12">
