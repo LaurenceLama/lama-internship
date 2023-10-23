@@ -16,7 +16,7 @@ export default function Author() {
     const { data } = await axios.get(
       `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`
     );
-    // setSkelLoad(false);
+    setSkelLoad(false);
     // console.log(data);
     setAuthor(data);
   }
@@ -50,51 +50,41 @@ export default function Author() {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <div className="d_profile de-flex">
-                  {skelLoad ? (
-                      <div className="nft_skeleton">
-                        <div className="de-flex-col">
-                          <div className="profile_avatar">
-                            <Skeleton
-                              borderRadius={100}
-                              height={150}
-                              width={150}
-                            />
+                {skelLoad ? (
+                  <div className="nft_skeleton">
+                    <div className="d_profile de-flex">
+                      <div className="de-flex-col">
+                        <div className="profile_avatar">
+                          <Skeleton
+                            borderRadius={100}
+                            height={150}
+                            width={150}
+                          />
 
-                            <i className="fa fa-check"></i>
-                            <div className="profile_name">
-                              <h4>
-                                {author.authorName}
-                                <span className="profile_username">
-                                  @{author.tag}
-                                </span>
-                                <span id="wallet" className="profile_wallet">
-                                  {author.address}
-                                </span>
-                                <button id="btn_copy" title="Copy Text">
-                                  Copy
-                                </button>
-                              </h4>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="profile_follow de-flex">
-                          <div className="de-flex-col">
-                                <div className="profile_follower">
-                                  {author.followers + 1} followers
-                                </div>
-                                <Link
-                                  to="#"
-                                  className="btn-main"
-                                  onClick={addFollow}
-                                >
-                                  Unfollow
-                                </Link>
+                          <i className="fa fa-check"></i>
+                          <div className="profile_name">
+                            <h4>
+                              <Skeleton height={24} width={200} />
+                              <span className="profile_username">
+                                <Skeleton height={16} width={100} />
+                              </span>
+                              <span id="wallet" className="profile_wallet">
+                                <Skeleton height={16} width={250} />
+                              </span>
+                            </h4>
                           </div>
                         </div>
                       </div>
-                  ) : (
-                    <>
+                      <div className="profile_follow de-flex">
+                        <div className="de-flex-col">
+                          <Skeleton height={40} width={150} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div className="d_profile de-flex">
                       <div className="de-flex-col">
                         <div className="profile_avatar">
                           <img src={author.authorImage} alt="" />
@@ -147,9 +137,9 @@ export default function Author() {
                           )}
                         </div>
                       </div>
-                    </>
-                  )}
-                </div>
+                    </div>
+                  </>
+                )}
               </div>
 
               <div className="col-md-12">
