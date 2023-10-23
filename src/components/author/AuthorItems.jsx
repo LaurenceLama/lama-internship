@@ -25,7 +25,7 @@ export default function AuthorItems() {
     <div className="de_tab_content">
       <div className="tab-1">
         <div className="row">
-          {author.nftCollection.map((col, index) => (
+          {/* {author.nftCollection.map((col, index) => (
           <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
             <div className="nft__item">
               <div className="author_list_pp">
@@ -72,7 +72,7 @@ export default function AuthorItems() {
               </div>
             </div>
           </div>
-          ))}
+          ))} */}
         </div>
       </div>
     </div>
