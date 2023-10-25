@@ -16,7 +16,7 @@ export default function Author() {
     const { data } = await axios.get(
       `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`
     );
-    setSkelLoad(false);
+    // setSkelLoad(false);
     setAuthor(data);
   }
 
@@ -143,7 +143,7 @@ export default function Author() {
 
               <div className="col-md-12">
                 <div className="de_tab tab_simple">
-                  <AuthorItems author={author} />
+                  <AuthorItems author={author} skelLoad={skelLoad} />
                 </div>
               </div>
             </div>
