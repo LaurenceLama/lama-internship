@@ -36,37 +36,29 @@ const ItemDetails = () => {
                 </div>
                 <div className="col-md-6">
                   <div className="item_info">
-                    <h2>
-                      <Skeleton height={40} width={300} />
-                    </h2>
-
+                    <Skeleton height={40} width={300} />
                     <div className="item_info_counts">
                       <div className="skeleton-box"></div>
                       <div className="skeleton-box"></div>
                     </div>
-                    <p>
-                      <Skeleton height={80} width={"100%"} />
-                    </p>
+                    <Skeleton height={80} width={"100%"} />
                     <div className="d-flex flex-row">
                       <div className="mr40">
                         <h6>Owner</h6>
                         <div className="item_author">
                           <div className="author_list_pp">
-                            <Link to="">
                               <Skeleton
                                 height={50}
                                 width={50}
                                 borderRadius={50}
                               />
                               <i className="fa fa-check"></i>
-                            </Link>
                           </div>
                           <div className="author_list_info">
                             <Skeleton height={20} width={125} />
                           </div>
                         </div>
                       </div>
-                      <div></div>
                     </div>
                     <div className="de_tab tab_simple">
                       <div className="de_tab_content">
