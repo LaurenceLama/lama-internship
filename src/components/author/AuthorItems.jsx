@@ -47,7 +47,7 @@ const AuthorItems = ({ author, skelLoad }) => {
                           </div>
                         </div>
                       </div>
-                      <Link to="/item-details">
+                      <Link to={`/item-details/${col.nftId}`}>
                         <img
                           src={col.nftImage}
                           className="lazy nft__item_preview"
@@ -56,7 +56,7 @@ const AuthorItems = ({ author, skelLoad }) => {
                       </Link>
                     </div>
                     <div className="nft__item_info">
-                      <Link to="/item-details">
+                      <Link to={`/item-details/${col.nftId}`}>
                         <h4>{col.title}</h4>
                       </Link>
                       <div className="nft__item_price">{col.price} ETH</div>
