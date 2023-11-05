@@ -29,7 +29,9 @@ export default function HotCollections() {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Hot Collections</h2>
+              <h2 data-aos="fade-in" data-aos-anchor-placement="top-bottom">
+                Hot Collections
+              </h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
@@ -70,7 +72,11 @@ export default function HotCollections() {
               }}
             >
               {col.map((collection, index) => (
-                <div key={index}>
+                <div
+                  key={index}
+                  data-aos="fade-in"
+                  data-aos-anchor-placement="top-bottom"
+                >
                   <div className="nft_coll">
                     <div className="nft_wrap">
                       <Link to={`/item-details/${collection.nftId}`}>

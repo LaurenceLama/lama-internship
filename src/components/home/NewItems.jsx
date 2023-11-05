@@ -30,7 +30,9 @@ export default function NewItems() {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>New Items</h2>
+              <h2 data-aos="fade-in" data-aos-anchor-placement="top-bottom">
+                New Items
+              </h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
@@ -107,7 +109,11 @@ export default function NewItems() {
               }}
             >
               {newItem.map((collection) => (
-                <div key={collection.id}>
+                <div
+                  key={collection.id}
+                  data-aos="fade-in"
+                  data-aos-anchor-placement="top-bottom"
+                >
                   <div className="nft__item">
                     <div className="author_list_pp">
                       <Link

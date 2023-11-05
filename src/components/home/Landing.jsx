@@ -22,7 +22,6 @@ const Landing = () => {
                   className="text-uppercase id-color-2"
                   data-aos="fade-up"
                   data-aos-delay="400"
-                  data-aos-anchor-placement="top-bottom"
                 >
                   Ultraverse Market
                 </span>
@@ -31,7 +30,6 @@ const Landing = () => {
               <h1
                 data-aos="fade-up"
                 data-aos-delay="600"
-                data-aos-anchor-placement="top-bottom"
               >
                 Create, sell or collect digital items.
               </h1>
@@ -39,7 +37,6 @@ const Landing = () => {
                 className="lead"
                 data-aos="fade-up"
                 data-aos-delay="700"
-                data-aos-anchor-placement="top-bottom"
               >
                 Unit of data stored on a digital ledger, called a blockchain,
                 that certifies a digital asset to be unique and therefore not
@@ -51,7 +48,6 @@ const Landing = () => {
                 to="/explore"
                 data-aos="fade-up"
                 data-aos-delay="1200"
-                data-aos-anchor-placement="top-bottom"
               >
                 Explore
               </Link>
@@ -61,7 +57,6 @@ const Landing = () => {
               className="col-md-6 xs-hide"
               data-aos="fade-in"
               data-aos-delay="1200"
-              data-aos-anchor-placement="top-bottom"
             >
               <img src={NFT} className="lazy img-fluid" alt="" />
             </div>
