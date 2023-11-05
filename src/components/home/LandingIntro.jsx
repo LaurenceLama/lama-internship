@@ -68,8 +68,6 @@ const LandingIntro = () => {
               ></i>
               <div
                 className="text"
-                data-aos="fade-in"
-                data-aos-anchor-placement="top-bottom"
               >
                 <h4
                   className=""
