@@ -6,18 +6,17 @@ import AuthorItems from "../components/author/AuthorItems";
 import Skeleton from "./Skeleton";
 
 export default function Author() {
-  const [skelLoad, setSkelLoad] = useState();
+  const [skelLoad, setSkelLoad] = useState(true);
   const [author, setAuthor] = useState([]);
   const { authorId } = useParams();
   const [follow, setFollow] = useState(false);
 
   async function fetchData() {
-    setSkelLoad(true);
     const { data } = await axios.get(
       `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`
     );
-    setSkelLoad(false);
     setAuthor(data);
+    setSkelLoad(false);
   }
 
   function addFollow() {
