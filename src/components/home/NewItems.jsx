@@ -16,8 +16,8 @@ export default function NewItems() {
     const { data } = await axios.get(
       "https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems"
     );
-    setSkelLoad(false);
     setNewItem(data);
+    setSkelLoad(false);
   }
 
   useEffect(() => {

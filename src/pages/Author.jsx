@@ -16,8 +16,8 @@ export default function Author() {
     const { data } = await axios.get(
       `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`
     );
-    setSkelLoad(false);
     setAuthor(data);
+    setSkelLoad(false);
   }
 
   function addFollow() {

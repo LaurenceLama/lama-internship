@@ -15,8 +15,8 @@ export default function HotCollections() {
     const { data } = await axios.get(
       "https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections"
     );
-    setSkelLoad(false);
     setCol(data);
+    setSkelLoad(false);
   }
 
   useEffect(() => {
